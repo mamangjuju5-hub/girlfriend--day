@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Untuk Kamu ❤️</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Georgia, serif;
+  background: #08000b;
+  color: white;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 20%, #ff4d8d55, transparent 30%),
+    radial-gradient(circle at 80% 80%, #9c00ff44, transparent 30%);
+  z-index: -1;
+}
+
+.page {
+  min-height: 100vh;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 20px;
+  text-align: center;
+}
+
+.page.active {
+  display: flex;
+}
+
+.content {
+  width: 100%;
+  max-width: 550px;
+}
+
+.small {
+  color: #ff91b2;
+  letter-spacing: 4px;
+  font-size: 12px;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: clamp(45px, 12vw, 75px);
+  margin-bottom: 15px;
+}
+
+h2 {
+  font-size: 32px;
+  margin-bottom: 25px;
+}
+
+.glow {
+  text-shadow: 0 0 20px #ff477e;
+}
+
+p {
+  line-height: 1.8;
+  color: #eee;
+}
+
+.btn {
+  margin-top: 25px;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 40px;
+  color: white;
+  background: linear-gradient(135deg, #ff477e, #a600ff);
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 0 25px #ff477e66;
+  transition: .3s;
+}
+
+.btn:hover {
+  transform: scale(1.07);
+}
+
+.photo {
+  width: min(85vw, 350px);
+  height: 430px;
+  object-fit: cover;
+  border-radius: 25px;
+  border: 2px solid #ff82a9;
+  box-shadow: 0 0 35px #ff477e77;
+}
+
+.typing {
+  min-height: 110px;
+  margin-top: 25px;
+  font-size: 19px;
+  color: #ffd7e5;
+}
+
+.letter,
+.date-box {
+  background: #ffffff0c;
+  border: 1px solid #ffffff22;
+  border-radius: 20px;
+  padding: 25px;
+  margin-top: 20px;
+}
+
+.letter {
+  text-align: left;
+}
+
+.date {
+  color: #ff91b2;
+  font-size: 30px;
+  margin: 15px 0;
+}
+
+.nav {
+  position: fixed;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: none;
+  gap: 5px;
+  padding: 8px;
+  background: #160817dd;
+  border-radius: 30px;
+  z-index: 20;
+}
+
+.nav button {
+  border: none;
+  background: transparent;
+  color: white;
+  padding: 9px 11px;
+  border-radius: 20px;
+}
+
+.nav button:hover {
+  background: #ff477e;
+}
+
+.heart {
+  position: fixed;
+  bottom: -30px;
+  animation: naik linear forwards;
+  z-index: 5;
+  pointer-events: none;
+}
+
+@keyframes naik {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  to {
+    transform: translateY(-110vh);
+    opacity: 0;
+  }
+}
+
+@media(max-width:600px) {
+  h2 {
+    font-size: 28px;
+  }
+
+  .photo {
+    height: 380px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- PEMBUKA -->
+
+<section class="page active" id="opening">
+
+<div class="content">
+
+<div class="small">ADA SESUATU UNTUK KAMU</div>
+
+<h1 class="glow">Hai, Sayang ❤️</h1>
+
+<p>
+Aku membuat sesuatu yang kecil,
+khusus untuk kamu.
+</p>
+
+<button class="btn" onclick="start()">
+Buka pesan 💌
+</button>
+
+</div>
+
+</section>
+
+
+<!-- HALAMAN UTAMA -->
+
+<section class="page" id="home">
+
+<div class="content">
+
+<div class="small">HAPPY GIRLFRIEND DAY</div>
+
+<h2 class="glow">
+Untuk Kamu ❤️
+</h2>
+
+<img src="foto.jpg" class="photo">
+
+<p class="typing" id="typing"></p>
+
+<button class="btn" onclick="showPage('story')">
+Lanjut ❤️
+</button>
+
+</div>
+
+</section>
+
+
+<!-- CERITA -->
+
+<section class="page" id="story">
+
+<div class="content">
+
+<div class="small">OUR STORY</div>
+
+<h2>Awal dari semuanya ✨</h2>
+
+<div class="letter">
+
+<p>
+Ada banyak hal yang terjadi dalam hidupku,
+tapi salah satu hal yang paling aku syukuri
+adalah bisa mengenal kamu.
+</p>
+
+<br>
+
+<p>
+Dari percakapan sederhana sampai momen-momen
+kecil yang kita lewati, semuanya perlahan
+menjadi kenangan yang berarti.
+</p>
+
+<br>
+
+<p>
+Terima kasih karena sudah menjadi bagian
+dari cerita hidupku. ❤️
+</p>
+
+</div>
+
+<button class="btn" onclick="showPage('date')">
+Tanggal kita 📅
+</button>
+
+</div>
+
+</section>
+
+
+<!-- TANGGAL -->
+
+<section class="page" id="date">
+
+<div class="content">
+
+<div class="small">OUR SPECIAL DATE</div>
+
+<h2>Hari yang spesial 💕</h2>
+
+<div class="date-box">
+
+<p>Kita mulai pada</p>
+
+<div class="date">
+14 FEBRUARI 2026
+</div>
+
+<p>
+Semoga tanggal ini terus menjadi
+salah satu tanggal favorit kita.
+</p>
+
+</div>
+
+<button class="btn" onclick="showPage('letter')">
+Surat untuk kamu 💌
+</button>
+
+</div>
+
+</section>
+
+
+<!-- SURAT -->
+
+<section class="page" id="letter">
+
+<div class="content">
+
+<div class="small">A LITTLE LETTER</div>
+
+<h2>Untuk kamu ❤️</h2>
+
+<div class="letter">
+
+<p>Hai sayang,</p>
+
+<br>
+
+<p>
+Terima kasih sudah hadir di hidupku.
+Terima kasih untuk semua perhatian,
+tawa, cerita, dan momen kecil yang
+pernah kita lewati.
+</p>
+
+<br>
+
+<p>
+Aku mungkin nggak selalu pandai
+mengungkapkan perasaanku, tapi aku
+ingin kamu tahu bahwa kamu sangat
+berarti buat aku.
+</p>
+
+<br>
+
+<p>
+Semoga kita bisa terus saling menjaga,
+saling memahami, dan membuat lebih
+banyak kenangan indah bersama.
+</p>
+
+<br>
+
+<p style="text-align:center;font-size:22px;color:#ff91b2;">
+Aku sayang kamu. ❤️
+</p>
+
+</div>
+
+<button class="btn" onclick="showPage('final')">
+Pesan terakhir ✨
+</button>
+
+</div>
+
+</section>
+
+
+<!-- FINAL -->
+
+<section class="page" id="final">
+
+<div class="content">
+
+<div class="small">ONE LAST MESSAGE</div>
+
+<h2 class="glow">
+Terima kasih sudah hadir ❤️
+</h2>
+
+<div class="letter">
+
+<p style="text-align:center;font-size:20px;">
+
+Kalau suatu hari nanti kamu
+melihat website kecil ini lagi...
+
+<br><br>
+
+semoga kamu ingat bahwa pernah ada
+seseorang yang membuat halaman ini
+khusus untuk kamu.
+
+<br><br>
+
+❤️
+
+<br><br>
+
+<b>
+Happy Girlfriend Day, sayang.
+</b>
+
+</p>
+
+</div>
+
+<button class="btn" onclick="showPage('home')">
+↻ Mulai lagi
+</button>
+
+</div>
+
+</section>
+
+
+<!-- NAVIGASI -->
+
+<div class="nav" id="nav">
+
+<button onclick="showPage('home')">🏠</button>
+<button onclick="showPage('story')">📖</button>
+<button onclick="showPage('date')">📅</button>
+<button onclick="showPage('letter')">💌</button>
+<button onclick="showPage('final')">❤️</button>
+
+</div>
+
+
+<!-- MUSIK -->
+
+<audio id="music" loop>
+<source src="musik.mp3" type="audio/mpeg">
+</audio>
+
+
+<script>
+
+const text =
+"Terima kasih sudah hadir di hidupku. Semoga website kecil ini bisa membuatmu tersenyum hari ini. ❤️";
+
+let index = 0;
+
+function start() {
+
+showPage("home");
+
+const music = document.getElementById("music");
+
+music.play().catch(() => {});
+
+typingEffect();
+
+}
+
+function showPage(page) {
+
+document.querySelectorAll(".page").forEach(p => {
+p.classList.remove("active");
+});
+
+document.getElementById(page).classList.add("active");
+
+if(page !== "opening") {
+document.getElementById("nav").style.display = "flex";
+}
+
+window.scrollTo(0,0);
+
+}
+
+function typingEffect() {
+
+const element = document.getElementById("typing");
+
+element.innerHTML = "";
+
+index = 0;
+
+const timer = setInterval(() => {
+
+if(index < text.length) {
+
+element.innerHTML += text[index];
+
+index++;
+
+} else {
+
+clearInterval(timer);
+
+}
+
+}, 45);
+
+}
+
+function createHeart() {
+
+const heart = document.createElement("div");
+
+heart.className = "heart";
+
+const emojis = [
+"❤️",
+"💕",
+"💗",
+"💖",
+"💘"
+];
+
+heart.innerHTML =
+emojis[Math.floor(Math.random() * emojis.length)];
+
+heart.style.left =
+Math.random() * 100 + "vw";
+
+heart.style.fontSize =
+(15 + Math.random() * 25) + "px";
+
+heart.style.animationDuration =
+(4 + Math.random() * 5) + "s";
+
+document.body.appendChild(heart);
+
+setTimeout(() => {
+heart.remove();
+}, 9000);
+
+}
+
+setInterval(createHeart, 500);
+
+</script>
+
+</body>
+  </html>
